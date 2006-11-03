@@ -1,20 +1,28 @@
-Summary:	XCB protocol files
-Summary(pl):	Pliki opisu protoko³u XCB
+Summary:	XML-XCB protocol description files
+Summary(pl):	Pliki opisu protoko³u XML-XCB
 Name:		xcb-proto
-Version:	0.9.92
+Version:	0.9.93
 Release:	1
 License:	MIT
 Group:		Development/Libraries
 Source0:	http://xcb.freedesktop.org/dist/%{name}-%{version}.tar.bz2
-# Source0-md5:	dc05c33ae1efc3e59d725887de9fc1a6
+# Source0-md5:	43298a907d6d242132c20e4338c2f33f
 URL:		http://xcb.freedesktop.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-XCB protocol files.
+xcb-proto provides the XML-XCB protocol descriptions that libxcb uses
+to generate the majority of its code and API. They are provided
+separately from libxcb to allow reuse by other projects, such as
+additional language bindings, protocol dissectors, or documentation
+generators.
 
 %description -l pl
-Pliki opisu protoko³u XCB.
+xcb-proto zawiera opisy protoko³u XML-XCB u¿ywane przez libxcb do
+generowania wiêkszo¶ci swojego kodu i API. S± dostarczane osobno, aby
+umo¿liwiæ wykorzystanie przez inne projekty, takie jak dodatkowe
+dowi±zania dla innych jêzyków, analizatory protoko³u czy generatory
+dokumentacji.
 
 %prep
 %setup -q
@@ -34,6 +42,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc COPYING TODO doc/xml-xcb.txt
+%doc COPYING NEWS README TODO doc/xml-xcb.txt
 %{_datadir}/xcb
 %{_pkgconfigdir}/xcb-proto.pc
