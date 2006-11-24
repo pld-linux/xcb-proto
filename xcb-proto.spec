@@ -1,12 +1,12 @@
 Summary:	XML-XCB protocol description files
 Summary(pl):	Pliki opisu protoko³u XML-XCB
 Name:		xcb-proto
-Version:	0.9.93
+Version:	1.0
 Release:	1
 License:	MIT
 Group:		Development/Libraries
 Source0:	http://xcb.freedesktop.org/dist/%{name}-%{version}.tar.bz2
-# Source0-md5:	43298a907d6d242132c20e4338c2f33f
+# Source0-md5:	d31407eaae7e52d100645217767a41aa
 URL:		http://xcb.freedesktop.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
