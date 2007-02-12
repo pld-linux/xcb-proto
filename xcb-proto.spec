@@ -1,5 +1,5 @@
 Summary:	XML-XCB protocol description files
-Summary(pl.UTF-8):   Pliki opisu protokołu XML-XCB
+Summary(pl.UTF-8):	Pliki opisu protokołu XML-XCB
 Name:		xcb-proto
 Version:	1.0
 Release:	1
