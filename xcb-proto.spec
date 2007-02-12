@@ -1,5 +1,5 @@
 Summary:	XML-XCB protocol description files
-Summary(pl):	Pliki opisu protoko³u XML-XCB
+Summary(pl.UTF-8):   Pliki opisu protokoÅ‚u XML-XCB
 Name:		xcb-proto
 Version:	1.0
 Release:	1
@@ -17,11 +17,11 @@ separately from libxcb to allow reuse by other projects, such as
 additional language bindings, protocol dissectors, or documentation
 generators.
 
-%description -l pl
-xcb-proto zawiera opisy protoko³u XML-XCB u¿ywane przez libxcb do
-generowania wiêkszo¶ci swojego kodu i API. S± dostarczane osobno, aby
-umo¿liwiæ wykorzystanie przez inne projekty, takie jak dodatkowe
-dowi±zania dla innych jêzyków, analizatory protoko³u czy generatory
+%description -l pl.UTF-8
+xcb-proto zawiera opisy protokoÅ‚u XML-XCB uÅ¼ywane przez libxcb do
+generowania wiÄ™kszoÅ›ci swojego kodu i API. SÄ… dostarczane osobno, aby
+umoÅ¼liwiÄ‡ wykorzystanie przez inne projekty, takie jak dodatkowe
+dowiÄ…zania dla innych jÄ™zykÃ³w, analizatory protokoÅ‚u czy generatory
 dokumentacji.
 
 %prep
