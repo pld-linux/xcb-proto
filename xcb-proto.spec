@@ -9,6 +9,8 @@ Source0:	http://xcb.freedesktop.org/dist/%{name}-%{version}.tar.bz2
 # Source0-md5:	09f912486d8a2353bb4b99ddc28ba3c7
 URL:		http://xcb.freedesktop.org/
 BuildRequires:	python
+BuildRequires:	rpm-pythonprov
+BuildRequires:	rpmbuild(macros) >= 1.219
 %pyrequires_eq	python
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
