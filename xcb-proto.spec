@@ -2,12 +2,14 @@ Summary:	XML-XCB protocol description files
 Summary(pl.UTF-8):	Pliki opisu protokołu XML-XCB
 Name:		xcb-proto
 Version:	1.2
-Release:	1
+Release:	2
 License:	MIT
 Group:		Development/Libraries
 Source0:	http://xcb.freedesktop.org/dist/%{name}-%{version}.tar.bz2
 # Source0-md5:	09f912486d8a2353bb4b99ddc28ba3c7
 URL:		http://xcb.freedesktop.org/
+BuildRequires:	python
+%pyrequires_eq	python
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -37,6 +39,10 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%py_comp $RPM_BUILD_ROOT
+%py_ocomp $RPM_BUILD_ROOT
+%py_postclean
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -45,3 +51,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc COPYING NEWS README TODO doc/xml-xcb.txt
 %{_datadir}/xcb
 %{_pkgconfigdir}/xcb-proto.pc
+%{py_sitescriptdir}/xcbgen
