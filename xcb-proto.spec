@@ -8,7 +8,7 @@ Group:		Development/Libraries
 Source0:	http://xcb.freedesktop.org/dist/%{name}-%{version}.tar.bz2
 # Source0-md5:	7d0481790104a10ff9174895ae954533
 URL:		http://xcb.freedesktop.org/
-BuildRequires:	python
+BuildRequires:	python >= 1:2.5
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
 %pyrequires_eq	python
