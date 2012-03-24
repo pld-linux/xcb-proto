@@ -1,13 +1,14 @@
 Summary:	XML-XCB protocol description files
 Summary(pl.UTF-8):	Pliki opisu protokołu XML-XCB
 Name:		xcb-proto
-Version:	1.7
+Version:	1.7.1
 Release:	1
 License:	MIT
 Group:		Development/Libraries
 Source0:	http://xcb.freedesktop.org/dist/%{name}-%{version}.tar.bz2
-# Source0-md5:	f5d73ec841ed055f5e80535819f18400
+# Source0-md5:	948fec39dd42f3694edd5d9689735ec4
 URL:		http://xcb.freedesktop.org/
+BuildRequires:	libxml2-progs
 BuildRequires:	python >= 1:2.5
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
