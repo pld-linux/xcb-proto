@@ -85,14 +85,11 @@ PYTHON=%{__python} \
 rm -rf $RPM_BUILD_ROOT
 
 %if %{with python3}
-cd build3
-%{__make} install \
+%{__make} -C build3 install \
 	DESTDIR=$RPM_BUILD_ROOT
-cd ..
 %endif
 
-cd build2
-%{__make} install \
+%{__make} -C build2 install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 %py_comp $RPM_BUILD_ROOT
