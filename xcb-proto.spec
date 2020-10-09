@@ -1,27 +1,35 @@
 #
 # Conditional build:
+%bcond_without	python2 # CPython 2.x module
 %bcond_without	python3 # CPython 3.x module
 
 Summary:	XML-XCB protocol description files
 Summary(pl.UTF-8):	Pliki opisu protokołu XML-XCB
 Name:		xcb-proto
-Version:	1.14
-Release:	2
+Version:	1.14.1
+Release:	1
 License:	MIT
 Group:		Development/Libraries
 #Source0:	https://xcb.freedesktop.org/dist/%{name}-%{version}.tar.bz2
 Source0:	https://xorg.freedesktop.org/releases/individual/proto/%{name}-%{version}.tar.xz
-# Source0-md5:	4a053ca2456007a343024a0452dbf13b
+# Source0-md5:	ecd6955dab1a7b9ba9756a11b8bdb48f
 URL:		https://xcb.freedesktop.org/
+BuildRequires:	autoconf >= 2.57
+BuildRequires:	automake >= 1:1.12.6
 BuildRequires:	libxml2-progs
-BuildRequires:	python >= 1:2.5
-%{?with_python3:BuildRequires:	python3}
+%{?with_python2:BuildRequires:	python >= 1:2.5}
+%{?with_python3:BuildRequires:	python3 >= 1:3.2}
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.219
+BuildRequires:	rpmbuild(macros) >= 1.752
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
+%if %{with python2}
 Requires:	python >= 1:2.5
 Requires:	python-xcbgen = %{version}-%{release}
+%else
+Requires:	python3 >= 1:3.2
+Requires:	python3-xcbgen = %{version}-%{release}
+%endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -42,6 +50,8 @@ dokumentacji.
 Summary:	Python 2 xcbgen module
 Summary(pl.UTF-8):	Moduł xcbgen dla Pythona 2
 Group:		Libraries/Python
+Requires:	python-modules >= 1:2.5
+%{?noarchpackage}
 
 %description -n python-xcbgen
 Python 2 xcbgen module.
@@ -53,6 +63,8 @@ Moduł xcbgen dla Pythona 2.
 Summary:	Python 3 xcbgen module
 Summary(pl.UTF-8):	Moduł xcbgen dla Pythona 3
 Group:		Libraries/Python
+Requires:	python3-modules >= 1:3.2
+%{?noarchpackage}
 
 %description -n python3-xcbgen
 Python 3 xcbgen module.
@@ -62,13 +74,15 @@ Moduł xcbgen dla Pythona 3.
 
 %prep
 %setup -q
-%if %{with python3}
-mkdir build3
-%endif
-mkdir build2
 
 %build
+# rebuild ac/am to use python3 sitescriptdir (apply automake/revert-debian-python-hacks.patch)
+%{__aclocal}
+%{__autoconf}
+%{__automake}
+
 %if %{with python3}
+install -d build3
 cd build3
 PYTHON=%{__python3} \
 ../%configure
@@ -76,10 +90,14 @@ PYTHON=%{__python3} \
 cd ..
 %endif
 
+%if %{with python2}
+install -d build2
 cd build2
 PYTHON=%{__python} \
 ../%configure
 %{__make}
+cd ..
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -89,12 +107,12 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 %endif
 
+%if %{with python2}
 %{__make} -C build2 install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%py_comp $RPM_BUILD_ROOT
-%py_ocomp $RPM_BUILD_ROOT
 %py_postclean
+%endif
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -105,12 +123,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/xcb
 %{_pkgconfigdir}/xcb-proto.pc
 
+%if %{with python2}
 %files -n python-xcbgen
 %defattr(644,root,root,755)
 %{py_sitescriptdir}/xcbgen
+%endif
 
 %if %{with python3}
 %files -n python3-xcbgen
 %defattr(644,root,root,755)
-%{py3_sitedir}/xcbgen
+%{py3_sitescriptdir}/xcbgen
 %endif
