@@ -53,7 +53,7 @@ Summary:	Python 2 xcbgen module
 Summary(pl.UTF-8):	Moduł xcbgen dla Pythona 2
 Group:		Libraries/Python
 Requires:	python-modules >= 1:2.5
-%{?noarchpackage}
+BuildArch:	noarch
 
 %description -n python-xcbgen
 Python 2 xcbgen module.
@@ -66,7 +66,7 @@ Summary:	Python 3 xcbgen module
 Summary(pl.UTF-8):	Moduł xcbgen dla Pythona 3
 Group:		Libraries/Python
 Requires:	python3-modules >= 1:3.2
-%{?noarchpackage}
+BuildArch:	noarch
 
 %description -n python3-xcbgen
 Python 3 xcbgen module.
