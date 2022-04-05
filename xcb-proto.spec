@@ -9,12 +9,13 @@ Summary:	XML-XCB protocol description files
 Summary(pl.UTF-8):	Pliki opisu protokołu XML-XCB
 Name:		xcb-proto
 Version:	1.14.1
-Release:	4
+Release:	5
 License:	MIT
 Group:		Development/Libraries
 #Source0:	https://xcb.freedesktop.org/dist/%{name}-%{version}.tar.bz2
 Source0:	https://xorg.freedesktop.org/releases/individual/proto/%{name}-%{version}.tar.xz
 # Source0-md5:	ecd6955dab1a7b9ba9756a11b8bdb48f
+Patch0:		%{name}-automake.patch
 URL:		https://xcb.freedesktop.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1:1.12.6
@@ -76,6 +77,7 @@ Moduł xcbgen dla Pythona 3.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 # rebuild ac/am to use python3 sitescriptdir (apply automake/revert-debian-python-hacks.patch)
