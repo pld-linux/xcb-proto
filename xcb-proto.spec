@@ -19,8 +19,14 @@ URL:		https://xcb.freedesktop.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1:1.12.6
 BuildRequires:	libxml2-progs
-%{?with_python2:BuildRequires:	python >= 1:2.5}
-%{?with_python3:BuildRequires:	python3 >= 1:3.2}
+%if %{with python2}
+BuildRequires:	python >= 1:2.5
+BuildRequires:	python-modules >= 1:2.5
+%endif
+%if %{with python3}
+BuildRequires:	python3 >= 1:3.2
+BuildRequires:	python3-modules >= 1:3.2
+%endif
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.752
 BuildRequires:	tar >= 1:1.22
