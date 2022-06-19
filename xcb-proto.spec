@@ -8,13 +8,13 @@
 Summary:	XML-XCB protocol description files
 Summary(pl.UTF-8):	Pliki opisu protokołu XML-XCB
 Name:		xcb-proto
-Version:	1.15
+Version:	1.15.2
 Release:	1
 License:	MIT
 Group:		Development/Libraries
 #Source0:	https://xcb.freedesktop.org/dist/%{name}-%{version}.tar.bz2
 Source0:	https://xorg.freedesktop.org/releases/individual/proto/%{name}-%{version}.tar.xz
-# Source0-md5:	19487607bde28d4a0e981fcfe0a328c5
+# Source0-md5:	d2251b01927c2fbe92dc540f9536b430
 URL:		https://xcb.freedesktop.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1:1.12.6
@@ -38,6 +38,7 @@ Requires:	python-xcbgen = %{version}-%{release}
 Requires:	python3 >= 1:3.2
 Requires:	python3-xcbgen = %{version}-%{release}
 %endif
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -59,7 +60,6 @@ Summary:	Python 2 xcbgen module
 Summary(pl.UTF-8):	Moduł xcbgen dla Pythona 2
 Group:		Libraries/Python
 Requires:	python-modules >= 1:2.5
-BuildArch:	noarch
 
 %description -n python-xcbgen
 Python 2 xcbgen module.
@@ -129,7 +129,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc COPYING NEWS README.md TODO doc/xml-xcb.txt
 %{_datadir}/xcb
-%{_pkgconfigdir}/xcb-proto.pc
+%{_npkgconfigdir}/xcb-proto.pc
 
 %if %{with python2}
 %files -n python-xcbgen
