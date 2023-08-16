@@ -8,13 +8,13 @@
 Summary:	XML-XCB protocol description files
 Summary(pl.UTF-8):	Pliki opisu protokołu XML-XCB
 Name:		xcb-proto
-Version:	1.15.2
+Version:	1.16.0
 Release:	1
 License:	MIT
 Group:		Development/Libraries
 #Source0:	https://xcb.freedesktop.org/dist/%{name}-%{version}.tar.bz2
 Source0:	https://xorg.freedesktop.org/releases/individual/proto/%{name}-%{version}.tar.xz
-# Source0-md5:	d2251b01927c2fbe92dc540f9536b430
+# Source0-md5:	92081b0faafd93f8262463c69829a482
 URL:		https://xcb.freedesktop.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1:1.12.6
