@@ -3,18 +3,16 @@
 %bcond_without	python2 # CPython 2.x module
 %bcond_without	python3 # CPython 3.x module
 
-%define		_enable_debug_packages	0
-
 Summary:	XML-XCB protocol description files
 Summary(pl.UTF-8):	Pliki opisu protokołu XML-XCB
 Name:		xcb-proto
-Version:	1.16.0
+Version:	1.17.0
 Release:	1
 License:	MIT
 Group:		Development/Libraries
-#Source0:	https://xcb.freedesktop.org/dist/%{name}-%{version}.tar.bz2
+#Source0:	https://xcb.freedesktop.org/dist/%{name}-%{version}.tar.xz
 Source0:	https://xorg.freedesktop.org/releases/individual/proto/%{name}-%{version}.tar.xz
-# Source0-md5:	92081b0faafd93f8262463c69829a482
+# Source0-md5:	c415553d2ee1a8cea43c3234a079b53f
 URL:		https://xcb.freedesktop.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1:1.12.6
