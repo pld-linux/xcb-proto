@@ -26,7 +26,7 @@ BuildRequires:	python3 >= 1:3.2
 BuildRequires:	python3-modules >= 1:3.2
 %endif
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.752
+BuildRequires:	rpmbuild(macros) >= 2.043
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 %if %{without python3}
@@ -87,11 +87,12 @@ Moduł xcbgen dla Pythona 3.
 %{__autoconf}
 %{__automake}
 
+%define	configuredir	..
 %if %{with python3}
 install -d build3
 cd build3
-PYTHON=%{__python3} \
-../%configure
+%configure \
+	PYTHON=%{__python3}
 %{__make}
 cd ..
 %endif
@@ -99,8 +100,8 @@ cd ..
 %if %{with python2}
 install -d build2
 cd build2
-PYTHON=%{__python} \
-../%configure
+%configure
+	PYTHON=%{__python}
 %{__make}
 cd ..
 %endif
