@@ -100,7 +100,7 @@ cd ..
 %if %{with python2}
 install -d build2
 cd build2
-%configure
+%configure \
 	PYTHON=%{__python}
 %{__make}
 cd ..
